@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Use List{% endblock %}
+
+{% block content %}
+
+  <table>
+    <thead>
+      <th>use: </th>
+      <th>id: </th>
+      <th>link: </th>
+      <th>link: </th>
+      <th>link: </th>
+
+    </thead>
+  {% for use in object_list %}
+  <tr>
+    <td>{{ use.id }}</td>
+    <td>{{ use.use }}</td>
+    <td><a href="{% url 'use_edit' use.pk %}">Edit</a></td>
+    <td><button type="button" name="button"><a href="{% url 'use_delete' use.pk %}">Delete</a></button></td>
+    <td><a href="{% url 'use_detail' use.pk %}">Detail</a></td>
+  </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

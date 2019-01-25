@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Detail{% endblock %}
+
+{% block content %}
+<h1>common_name: {{ plant.common_name }}</h1>
+<h1>species_name: {{ plant.species_name }}</h1>
+<h1>genus: {{ plant.genus }}</h1>
+
+<h1>Uses: </h1>
+
+<a href="{% url 'plant_edit' plant.pk %}">Edit</a>
+<a href="{% url 'plant_delete' plant.pk %}">Delete</a>
+<a href="{% url 'plant_list' %}">List</a>
+{% endblock %}

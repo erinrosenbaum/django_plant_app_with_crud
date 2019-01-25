@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}List{% endblock %}
+
+{% block content %}
+
+  <table>
+    <thead>
+      <th>common_name: </th>
+      <th>species_name: </th>
+      <th>id: </th>
+      <th>genus: </th>
+      <th>Edit: </th>
+      <th>Delete: </th>
+      <th>Detail: </th>
+    </thead>
+  {% for plant in object_list %}
+  <tr>
+    <td>{{ plant.common_name }}</td>
+    <td>{{ plant.species_name }}</td>
+    <td>{{ plant.id }}</td>
+    <td>{{ plant.genus }}</td>
+    <td><a href="{% url 'plant_edit' plant.pk %}">Edit</a></td>
+    <td><button type="button" name="button"><a href="{% url 'plant_delete' plant.pk %}">Delete</a></button></td>
+    <td><a href="{% url 'plant_detail' plant.pk %}">Detail</a></td>
+  </tr>
+  {% endfor %}
+  </table>
+{% endblock %}
